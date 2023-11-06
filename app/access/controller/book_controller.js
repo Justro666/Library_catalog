@@ -3,6 +3,16 @@ const RentBooks = require("../model/t_student_book");
 const ApiResponse = require("../../helper/apiResponse");
 const helper = require("../../helper/helper");
 
+/**
+ * The function `allBooks` retrieves a list of books based on various search criteria and returns the
+ * results along with pagination information.
+ * @returns an API response with the following data:
+ * - "All Books" as the success message
+ * - An object with the following properties:
+ *   - "data" property containing the result of the aggregation query on the Books collection
+ *   - "pagination" property containing pagination information obtained from the
+ * helper.getPaginationInfo() function
+ */
 const allBooks = async (req, res) => {
   try {
     const { author, categories, catalogue, bookName } = req.body;
@@ -73,6 +83,12 @@ const allBooks = async (req, res) => {
   }
 };
 
+/**
+ * The addBook function is an asynchronous function that creates a new book record in a database, with
+ * validation checks for categories and returns an appropriate response.
+ * @returns an API response with the status code and message, along with the created book data if
+ * successful.
+ */
 const addBook = async (req, res) => {
   try {
     const { name, author, categories, catalogue } = req.body;
@@ -96,6 +112,13 @@ const addBook = async (req, res) => {
   }
 };
 
+/**
+ * The rentBook function is an asynchronous function that handles the process of renting a book by
+ * creating a new entry in the RentBooks table with the bookId and userId provided in the request body.
+ * @returns an ApiResponse with the created data if the book is successfully rented, or an ApiResponse
+ * with a forbidden status and a message if the user is not logged in. If there is an error, it returns
+ * an ApiResponse with a server error status and a message.
+ */
 const rentBook = async (req, res) => {
   try {
     const { bookId } = req.body;
@@ -113,6 +136,15 @@ const rentBook = async (req, res) => {
   }
 };
 
+/**
+ * The function retrieves all rented books based on the query parameters and returns the data along
+ * with pagination information.
+ * @returns an API response with the following parameters:
+ * - The response object `res`
+ * - A success message string "All Rented Books"
+ * - The data retrieved from the database query
+ * - Pagination information obtained from the `helper.getPaginationInfo()` function
+ */
 const allRentedBook = async (req, res) => {
   try {
     let limit = parseInt(req.query.limit) || 10;
@@ -143,6 +175,11 @@ const allRentedBook = async (req, res) => {
   }
 };
 
+/**
+ * The function updates the "returned" field of a rent book record in a database.
+ * @returns an API response with a success status code and a message, along with the updated rent book
+ * data.
+ */
 const updateRentBook = async (req, res) => {
   try {
     const { rentId, returned } = req.body;

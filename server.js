@@ -11,13 +11,11 @@ const verifyJWT = require("./app/access/middleware/verifyAdJWT");
 require("dotenv").config();
 app.use(logger);
 
+//Cors Options for securitys
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(fileUpload());
 app.use(cookieParser());
-
-// Enable CORS
-app.use(cors(corsOptions));
 
 mongoose.connect(`mongodb://localhost:27017/${process.env.DB_NAME}`);
 

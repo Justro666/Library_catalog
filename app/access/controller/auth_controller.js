@@ -5,6 +5,13 @@ const ApiResponse = require('../../helper/apiResponse')
 const { UserDTO } = require('../dto/user.dto')
 const helper = require("../../helper/helper")
 
+
+
+/**
+ * The function `register` is an asynchronous function that handles user registration by checking if
+ * the user already exists, creating a new user if not, and returning a success response.
+ * @returns an ApiResponse object.
+ */
 const register = async (req,res) =>{
 try {
   const { username,email, password } = req.body
@@ -18,6 +25,13 @@ try {
 }
 }
 
+/**
+ * The login function in JavaScript handles user authentication by checking the email and password,
+ * generating access and refresh tokens, creating a secure cookie with the refresh token, and returning
+ * the access token along with user information.
+ * @returns an API response with the success status and the login data, including the user information
+ * and the access token.
+ */
 const login = async (req, res) => {
    try {
      const { email, password } = req.body
@@ -54,6 +68,11 @@ const login = async (req, res) => {
    }
 }
 
+/**
+ * The adLogin function is used for authenticating an admin user by checking their email and password,
+ * and returning an access token if the authentication is successful.
+ * @returns an API response with the login information and an access token.
+ */
 const adLogin = async (req, res) => {
    try {
      const { email, password } = req.body
@@ -79,6 +98,12 @@ const adLogin = async (req, res) => {
    }
 }
 
+/**
+ * The `refresh` function is used to refresh an access token by verifying the provided refresh token
+ * and generating a new access token if the verification is successful.
+ * @returns The function `refresh` returns a response to the client. The response can be one of the
+ * following:
+ */
 const refresh = (req, res) => {
     try {
       const cookies = req.cookies
@@ -110,6 +135,13 @@ const refresh = (req, res) => {
 }
 
 
+/**
+ * The `logout` function clears the JWT cookie and sends a response indicating that the cookie has been
+ * cleared.
+ * @returns a JSON response with the message "Cookie cleared" if the 'jwt' cookie exists and is
+ * successfully cleared. If the 'jwt' cookie does not exist, it returns a status code of 204 (No
+ * Content).
+ */
 const logout = (req, res) => {
   try {  
     const cookies = req.cookies
