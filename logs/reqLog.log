@@ -1,0 +1,7 @@
+20231106	16:33:14	fbc0bef8-bdec-4cbf-be94-0f787b9e4496	POST	/auth/login	undefined
+20231106	16:33:30	5f8131db-35d3-4d34-9993-44f8ab0112f3	POST	/books/rentBook	undefined
+20231106	16:33:38	bbd8a1b2-b485-4813-8e84-dd83dcc86014	POST	/books/rentBook	undefined
+20231106	16:36:34	17e5f89f-6f0a-4097-98a1-88769a21ca7c	POST	/bookCats/deleteCatalogue	undefined
+20231106	16:36:48	6ec61071-afc5-4a85-b1b4-9745b3c8a789	POST	/bookCats/deleteCatalogue	undefined
+20231106	16:37:05	1ae55dd3-f816-423a-ae2e-f104e6b78504	POST	/bookCats/deleteCatalogue	undefined
+20231106	16:37:30	dd5298c8-8202-4ecd-bed4-adde2901f0eb	POST	/bookCatalogue/deleteCatalogue	undefined
